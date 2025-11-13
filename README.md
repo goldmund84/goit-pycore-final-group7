@@ -110,16 +110,13 @@ python -m personal_assistant.main
 | `add-address` | `[ім'я] [адреса]` | Додати адресу до контакту |
 
 ### Команди для роботи з нотатками
-
-| Команда | Параметри | Опис |
-|---------|-----------|------|
-| `add-note` | `[заголовок]` | Створити нову нотатку (далі введіть текст) |
-| `show-notes` | - | Показати всі нотатки |
-| `find-note` | `[ключове_слово]` | Знайти нотатки за ключовим словом |
-| `edit-note` | `[id]` | Редагувати нотатку |
-| `delete-note` | `[id]` | Видалити нотатку |
-| `add-tag` | `[id] [тег]` | Додати тег до нотатки |
-| `find-by-tag` | `[тег]` | Знайти нотатки за тегом |
+| **`add-note`** | `[контент]` | Створити нотатку. Увесь зміст вводиться в один рядок. |
+| **`show-notes`** | - | Показати всі нотатки. |
+| **`find-note`** | `[ключове-слово]` | Знайти нотатки за ключовим словом у контенті. |
+| **`edit-note`** | `[id] [новий_контент]` | Редагувати нотатку за ID. |
+| **`delete-note`** | `[id]` | Видалити нотатку за ID. |
+| **`add-tag`** | `[id] [тег]` | Додати тег до нотатки за ID. |
+| **`find-by-tag`** | `[тег]` | Знайти нотатки за тегом. |
 
 ## Приклади використання
 
@@ -164,11 +161,8 @@ Name: John, Congratulation Date: 17.06.2025
 
 ```bash
 # Додавання нотатки
-Enter a command: add-note Shopping list
-Enter note content (press Ctrl+D when done):
-Buy milk
-Buy bread
-Buy eggs
+# Увесь контент вводиться в одному рядку
+Enter a command: add-note Shopping list: Buy milk, bread, eggs.
 Note added with ID: 1
 
 # Додавання тегу
@@ -178,17 +172,16 @@ Tag added.
 # Пошук за тегом
 Enter a command: find-by-tag shopping
 Notes with tag 'shopping':
-[1] Shopping list
+[1] Shopping list: Buy milk, bread, eggs.
     Tags: shopping
-    Created: 2025-11-13 10:00:00
+    Created: 2025-11-13 18:07:32
 
 # Перегляд всіх нотаток
 Enter a command: show-notes
 All notes:
-[1] Shopping list
+[1] Shopping list: Buy milk, bread, eggs.
     Tags: shopping
-    Created: 2025-11-13 10:00:00
-    Content: Buy milk, Buy bread, Buy eggs
+    Created: 2025-11-13 18:07:32
 ```
 
 ## Структура проєкту
