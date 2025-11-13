@@ -199,19 +199,16 @@ goit-pycore-final-group7/
 │   └── personal_assistant/
 │       ├── __init__.py
 │       ├── main.py                # Точка входу
-│       ├── models/                # Класи моделей даних
+│       ├── contacts/              # Управління контактами
 │       │   ├── __init__.py
 │       │   ├── fields.py          # Field, Name, Phone, Email, etc.
 │       │   ├── contact.py         # Record (контакт)
-│       │   ├── note.py            # Note (нотатка)
 │       │   └── address_book.py    # AddressBook
-│       ├── storage/               # Збереження даних
+│       ├── notes/                 # Управління нотатками
 │       │   ├── __init__.py
-│       │   └── persistence.py     # Робота з файлами
-│       └── cli/                   # CLI інтерфейс
-│           ├── __init__.py
-│           ├── parser.py          # Парсинг команд
-│           └── commands.py        # Обробники команд
+│       │   └── note.py            # Note (нотатка)
+│       ├── storage.py             # Збереження даних
+│       └── cli.py                 # CLI інтерфейс
 ├── setup.py                       # Конфігурація пакета
 ├── requirements.txt               # Залежності
 ├── README.md                      # Документація
