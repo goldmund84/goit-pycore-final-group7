@@ -1,3 +1,1 @@
-"""
-Notes management module.
-"""
+from .note import Note, NoteBook
