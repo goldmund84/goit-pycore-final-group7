@@ -1,2 +1,0 @@
-[console_scripts]
-personal-assistant = personal_assistant.main:main
