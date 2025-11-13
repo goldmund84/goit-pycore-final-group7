@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: personal-assistant
+Version: 1.0.0
+Summary: Personal Assistant CLI for managing contacts and notes
+Author: goit-pycore-final-group7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Dynamic: author
+Dynamic: classifier
+Dynamic: requires-python
+Dynamic: summary
