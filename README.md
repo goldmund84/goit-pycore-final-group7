@@ -149,8 +149,13 @@ Phones: 1234567890
 Email: john@example.com
 Birthday: 15.06.1990
 
-# Пошук контактів
-Enter a command: search-contact 123
+# Пошук контакту за ім'ям
+Enter a command: search-contact John
+Found contacts:
+Contact name: John, phones: 1234567890
+
+# Пошук контакту за номером телефона
+Enter a command: search-contact-by-phone 1234567890
 Found contacts:
 Contact name: John, phones: 1234567890
 
