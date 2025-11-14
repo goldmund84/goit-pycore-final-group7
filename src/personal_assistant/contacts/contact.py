@@ -8,7 +8,8 @@ from datetime import datetime, timedelta
 from contacts.fields import Name
 from contacts.fields import Phone
 from contacts.fields import Birthday
-
+from contacts.fields import Email
+from contacts.fields import Address
 from contacts.address_book import AddressBook
 
 # Decorator for handling input errors
@@ -21,6 +22,8 @@ class Record:
         self.name = Name(name)
         self.phones = []
         self.birthday = None
+        self.email = None
+        self.address = None
 
     def add_phone(self, phone):
         """Додає новий номер телефону."""
@@ -53,10 +56,20 @@ class Record:
         """Додає день народження до контакту."""
         self.birthday = Birthday(birthday)
 
+    def add_email(self, email):
+        """Додає email до контакту."""
+        self.email = Email(email)
+    
+    def add_address(self, address):
+        """Додає адресу до контакту."""
+        self.address = Address(address)
+
     def __str__(self):
-        phones_str = "; ".join(p.value for p in self.phones)
-        bday_str = f", birthday: {self.birthday.value}" if self.birthday else ""
-        return f"Contact name: {self.name.value}, phones: {phones_str}{bday_str}"
+        phones = ", ".join(p.value for p in self.phones) if self.phones else "no phones"
+        email = self.email.value if getattr(self, "email", None) else "no email"
+        address = self.address.value if getattr(self, "address", None) else "no address"
+
+        return f"{self.name}: {phones}, {email}, {address}"
     
 # --------------------- HANDLER FUNCTIONS ---------------------
 @input_error
@@ -95,8 +108,23 @@ def search_contact(args, book: AddressBook):
         raise KeyError(f"Contact '{name}' not found.")
 
     # Convert record to a readable string
+    # phones = ", ".join(p.value for p in record.phones) if record.phones else "no phones"
+    # return f"{record.name}: {phones}"
+
+     # Extract phones
     phones = ", ".join(p.value for p in record.phones) if record.phones else "no phones"
-    return f"{record.name}: {phones}"
+
+    # Extract email
+    # Case 1: email stored as a single field
+    email = record.email.value if getattr(record, "email", None) else "no email"
+
+    # multiple emails?
+    # email = ", ".join(e.value for e in record.emails) if record.emails else "no emails"
+
+    # Extract address
+    address = record.address.value if getattr(record, "address", None) else "no address"
+
+    return f"{record.name}: {phones}, {email}, {address}"
 
 @input_error
 def delete_contact(args, book: AddressBook):
@@ -145,6 +173,25 @@ def add_birthday(args, book: AddressBook):
         return "Contact not found."
     record.add_birthday(birthday)
     return f"Birthday added for {name}."
+
+@input_error
+def add_email(args, book: AddressBook):
+    name, email = args
+    record = book.find(name)
+    if not record:
+        return "Contact not found."
+    record.add_email(email)
+    return f"Email added for {name}."
+
+@input_error
+def add_address(args, book: AddressBook):
+    name, address = args
+    record = book.find(name)
+    if not record:
+        return "Contact not found."
+    record.add_address(address)
+    return f"Address added for {name}."
+
 
 @input_error
 def show_birthday(args, book: AddressBook):

@@ -13,7 +13,9 @@ from contacts.contact import delete_contact
 from contacts.contact import change_phone
 from contacts.contact import show_phones
 from contacts.contact import show_all
-from contacts.contact import add_birthday
+from contacts.contact import add_birthday 
+from contacts.contact import add_email
+from contacts.contact import add_address
 from contacts.contact import show_birthday
 from contacts.contact import birthdays
 #---------------------  SAVE/LOAD DATA TO/FROM FILE ---------------------
@@ -71,11 +73,17 @@ def main():
         elif command == "phone":
             print(show_phones(args, book))
 
-        elif command == "all":
+        elif command == "all-contacts":
             print(show_all(args, book))
 
         elif command == "add-birthday":
             print(add_birthday(args, book))
+
+        elif command == "add-email":
+            print(add_email(args, book))
+
+        elif command == "add-address":
+            print(add_address(args, book))
 
         elif command == "show-birthday":
             print(show_birthday(args, book))

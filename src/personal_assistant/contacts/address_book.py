@@ -34,7 +34,8 @@ class AddressBook(UserDict):
                 continue
 
             birthday = record.birthday.value
-            birthday_this_year = birthday.replace(year=today.year)
+            birthday_date = datetime.strptime(birthday, "%d.%m.%Y").date()
+            birthday_this_year = birthday_date.replace(year=today.year)
 
             if birthday_this_year < today:
                 birthday_this_year = birthday_this_year.replace(year=today.year + 1)
