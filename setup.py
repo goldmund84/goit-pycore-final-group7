@@ -12,6 +12,9 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     python_requires=">=3.9",
+    install_requires=[
+        "prompt_toolkit>=3.0.0",
+    ],
     entry_points={
         "console_scripts": [
             "personal-assistant=personal_assistant.main:main",

@@ -1,3 +1,2 @@
 # Requirements for Personal Assistant
-# No external dependencies required for basic functionality
-# All features use Python standard library
+prompt_toolkit>=3.0.0
