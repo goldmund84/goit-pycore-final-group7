@@ -84,7 +84,32 @@ class NoteBook(UserDict):
             if tag_query in note.tags:
                 found_notes[note_id] = note
         return found_notes
-    
+
+    # --- СОРТУВАННЯ ЗА ТЕГАМИ ---
+    def sort_notes_by_tag(self):
+        """
+        Повертає список нотаток, відсортованих за тегами.
+
+        Критерій сортування:
+        1. За кількістю тегів (спадання - більше тегів спочатку)
+        2. За алфавітом першого тега (за наявності тегів)
+        3. За ID нотатки (для стабільності сортування)
+
+        Returns:
+            list: Список кортежів (note_id, note), відсортованих за тегами
+        """
+        def sort_key(item):
+            note_id, note = item
+            # Кількість тегів (інвертуємо для спадаючого порядку)
+            tag_count = -len(note.tags)
+            # Перший тег за алфавітом (або порожній рядок, якщо тегів немає)
+            first_tag = sorted(note.tags)[0] if note.tags else ""
+            # ID нотатки для стабільності
+            return (tag_count, first_tag, note_id)
+
+        sorted_notes = sorted(self.data.items(), key=sort_key)
+        return sorted_notes
+
     def __str__(self):
         if not self.data:
             return "No notes saved."

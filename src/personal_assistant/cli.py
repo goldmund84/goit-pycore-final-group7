@@ -43,6 +43,7 @@ from .notes.handlers import (
     delete_note_handler,
     add_tag_handler,
     find_by_tag_handler,
+    sort_notes_by_tag_handler,
 )
 
 
@@ -88,6 +89,7 @@ COMMANDS = {
     "delete-note": delete_note_handler,
     "add-tag": add_tag_handler,
     "find-by-tag": find_by_tag_handler,
+    "sort-notes-by-tag": sort_notes_by_tag_handler,
 }
 
 

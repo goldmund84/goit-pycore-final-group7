@@ -102,3 +102,26 @@ def find_by_tag_handler(args, book, notebook):
     for note_id, note in found_notes.items():
         output_lines.append(f"ID {note_id}: {note}")
     return "\n".join(output_lines)
+
+
+def sort_notes_by_tag_handler(args, book, notebook):
+    """
+    Показує всі нотатки, відсортовані за тегами.
+
+    Сортування відбувається за:
+    1. Кількістю тегів (більше тегів спочатку)
+    2. Алфавітним порядком тегів
+    3. ID нотатки
+    """
+    if not notebook.data:
+        return "No notes saved."
+
+    sorted_notes = notebook.sort_notes_by_tag()
+
+    output_lines = ["--- Notes Sorted by Tags ---"]
+    for note_id, note in sorted_notes:
+        tag_count = len(note.tags)
+        tag_info = f" [{tag_count} tag(s)]" if tag_count > 0 else " [no tags]"
+        output_lines.append(f"ID {note_id}{tag_info}: {note}")
+
+    return "\n".join(output_lines)
