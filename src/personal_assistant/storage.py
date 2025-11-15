@@ -37,6 +37,14 @@ def load_notes(filename="notes.pkl"):
     """Завантажує NoteBook з файлу або створює нову."""
     try:
         with open(filename, "rb") as f:
-            return pickle.load(f)
+            notebook = pickle.load(f)
+
+            # Відновлюємо _next_id до максимального значення + 1
+            # Це гарантує, що нові нотатки отримають унікальні ID
+            if notebook.data:
+                max_id = max(notebook.data.keys())
+                notebook._next_id = max_id + 1
+
+            return notebook
     except FileNotFoundError:
         return NoteBook()
