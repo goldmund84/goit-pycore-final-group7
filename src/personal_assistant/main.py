@@ -1,3 +1,5 @@
+from cli import run_cli
+
 """
 Main entry point for Personal Assistant CLI application.
 """
@@ -42,57 +44,10 @@ def parse_input(user_input: str):
     return command, args
 
 def main():
-    #book = AddressBook()
-    book = load_data()  # завантажуємо збережені дані, якщо є
-    print("Welcome to the assistant bot!")
-
-    while True:
-        user_input = input("Enter a command: ")
-        command, args = parse_input(user_input)
-
-        if command in ["close", "exit"]:
-            save_data(book)  # зберігаємо перед виходом
-            print("Good bye!")
-            break
-
-        elif command == "hello":
-            print("How can I help you?")
-
-        elif command == "add":
-            print(add_contact(args, book))
-
-        elif command == "search-contact":
-            print(search_contact(args, book))
-
-        elif command == "delete-contact":
-            print(delete_contact(args, book))
-
-        elif command == "change":
-            print(change_phone(args, book))
-
-        elif command == "phone":
-            print(show_phones(args, book))
-
-        elif command == "all-contacts":
-            print(show_all(args, book))
-
-        elif command == "add-birthday":
-            print(add_birthday(args, book))
-
-        elif command == "add-email":
-            print(add_email(args, book))
-
-        elif command == "add-address":
-            print(add_address(args, book))
-
-        elif command == "show-birthday":
-            print(show_birthday(args, book))
-
-        elif command == "birthdays":
-            print(birthdays(args, book))
-
-        else:
-            print("Invalid command.")
+    """
+    Main function to run Personal Assistant.
+    """
+    run_cli()
 
 
 if __name__ == "__main__":
