@@ -34,7 +34,7 @@ ENV/
 *~
 
 # Data files
-*.pkl
+#*.pkl
 *.db
 
 # OS
