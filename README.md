@@ -199,7 +199,8 @@ goit-pycore-final-group7/
 │       │   └── address_book.py    # AddressBook
 │       ├── notes/                 # Управління нотатками
 │       │   ├── __init__.py
-│       │   └── note.py            # Note (нотатка)
+│       │   ├── note.py            # Note (нотатка)
+│       │   └── handlers.py        # Note handlers
 │       ├── storage.py             # Збереження даних
 │       └── cli.py                 # CLI інтерфейс
 ├── setup.py                       # Конфігурація пакета
