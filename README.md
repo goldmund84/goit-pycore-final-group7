@@ -104,7 +104,8 @@ python -m personal_assistant.main
 | `add-birthday` | `[ім'я] [ДД.ММ.РРРР]` | Додати день народження до контакту |
 | `show-birthday` | `[ім'я]` | Показати день народження контакту |
 | `birthdays` | - | Показати дні народження на наступний тиждень |
-| `search-contact` | `[запит]` | Знайти контакти за іменем або номером телефону |
+| `search-contact` | `[ім'я]` | Знайти контакти за іменем |
+| `search-contact-by-phone` | `[телефон]` | Знайти контакти за телефоном |
 | `delete-contact` | `[ім'я]` | Видалити контакт |
 | `add-email` | `[ім'я] [email]` | Додати email до контакту |
 | `add-address` | `[ім'я] [адреса]` | Додати адресу до контакту |
@@ -146,8 +147,13 @@ Phones: 1234567890
 Email: john@example.com
 Birthday: 15.06.1990
 
-# Пошук контактів
-Enter a command: search-contact 123
+# Пошук контакту за ім'ям
+Enter a command: search-contact John
+Found contacts:
+Contact name: John, phones: 1234567890
+
+# Пошук контакту за номером телефона
+Enter a command: search-contact-by-phone 1234567890
 Found contacts:
 Contact name: John, phones: 1234567890
 
@@ -226,7 +232,7 @@ goit-pycore-final-group7/
 ## Збереження даних
 
 Програма автоматично зберігає всі дані у файли при виході:
-- `contacts.pkl` - контакти адресної книги
+- `addressbook.pkl` - контакти адресної книги
 - `notes.pkl` - нотатки
 
 Дані завантажуються автоматично при наступному запуску програми.
