@@ -1,3 +1,5 @@
+from cli import run_cli
+
 """
 Main entry point for Personal Assistant CLI application.
 """
@@ -7,7 +9,7 @@ def main():
     """
     Main function to run Personal Assistant.
     """
-    pass
+    run_cli()
 
 
 if __name__ == "__main__":
