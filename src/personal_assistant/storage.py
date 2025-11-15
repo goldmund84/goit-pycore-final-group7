@@ -4,8 +4,8 @@ Storage module for saving and loading contacts and notes.
 
 import pickle
 
-from contacts.address_book import AddressBook
-from notes.note import NoteBook
+from .contacts.address_book import AddressBook
+from .notes.note import NoteBook
 
 # -------------------------
 # SAVE/LOAD DATA TO/FROM FILE

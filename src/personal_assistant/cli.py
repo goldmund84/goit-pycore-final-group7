@@ -7,14 +7,14 @@ from prompt_toolkit.completion import Completer, Completion
 from prompt_toolkit.document import Document
 from prompt_toolkit.completion.base import CompleteEvent
 
-from storage import (
+from .storage import (
     save_data,
     load_data,
     save_notes,
     load_notes
 )
 
-from contacts.contact import (
+from .contacts.contact import (
     # CONTACTS
     add_contact,
     search_contact,
@@ -34,7 +34,7 @@ from contacts.contact import (
     add_address,
 )
 
-from notes.handlers import (
+from .notes.handlers import (
     # NOTES AND TAGS
     add_note_handler,
     find_notes_handler,

@@ -33,15 +33,15 @@ from collections import UserDict
 
 from datetime import datetime, timedelta
 
-from contacts.fields import Name
-from contacts.fields import Phone
-from contacts.fields import Birthday
-from contacts.fields import Email
-from contacts.fields import Address
-from contacts.address_book import AddressBook
+from .fields import Name
+from .fields import Phone
+from .fields import Birthday
+from .fields import Email
+from .fields import Address
+from .address_book import AddressBook
 
 # Decorator for handling input errors
-from contacts.input_error import input_error
+from .input_error import input_error
 # --------------------- RECORD CLASS ---------------------
 
 class Record:
